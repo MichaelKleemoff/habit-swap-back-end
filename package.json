@@ -1,7 +1,7 @@
 {
   "name": "habit-swap-back-end",
   "version": "1.0.0",
-  "description": "10.2 Module 4 Full-Stack Portfolio App Back-End",
+  "description": "10.2 Module 4 Full-Stack Portfolio Project App Back-End",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
