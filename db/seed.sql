@@ -1,6 +1,6 @@
 \c habit_swap_dev;
 INSERT INTO bad_habits (
-		name,
+		NAME,
 		img_url,
 		category,
 		description,
@@ -32,7 +32,7 @@ VALUES (
 		10
 	);
 INSERT INTO good_habits (
-		name,
+		NAME,
 		img_url,
 		category,
 		description,
