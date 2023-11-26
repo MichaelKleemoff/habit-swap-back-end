@@ -16,7 +16,7 @@ CREATE TABLE bad_habits (
 );
 CREATE TABLE good_habits (
 	id SERIAL PRIMARY KEY,
-	NAME TEXT NOT NULL,
+	name TEXT NOT NULL,
 	img_url TEXT,
 	category TEXT,
 	description VARCHAR(200),

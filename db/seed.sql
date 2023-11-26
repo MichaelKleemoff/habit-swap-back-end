@@ -1,6 +1,6 @@
 \c habit_swap_dev;
 INSERT INTO bad_habits (
-		NAME,
+		name,
 		img_url,
 		category,
 		description,
@@ -9,7 +9,7 @@ INSERT INTO bad_habits (
 	)
 VALUES (
 		'smoking',
-		'image.jpg',
+		'https://tinyurl.com/2wkyjscz',
 		'health',
 		'Smoking can cause COPD and cancer.',
 		'true',
@@ -17,7 +17,7 @@ VALUES (
 	),
 	(
 		'drinking',
-		'image.jpg',
+		'https://tinyurl.com/28xp2ncy',
 		'health',
 		'Drinking can be addictive. Too much drinking over time can damage organs like the liver and the brain causing dementia.',
 		'true',
@@ -25,7 +25,7 @@ VALUES (
 	),
 	(
 		'overeating',
-		'image.jpg',
+		'https://tinyurl.com/3uhpnej8',
 		'health',
 		'Overeating can lead to obesity and other health problems potentially life-threatening.',
 		'true',
@@ -41,7 +41,7 @@ INSERT INTO good_habits (
 	)
 VALUES (
 		'nicorette gum',
-		'image.jpg',
+		'https://m.media-amazon.com/images/I/816w8kq8aEL.jpg',
 		'health',
 		'Nicorette gum helps to deal with nicotine cravings replacing the danger of smoking with gum.',
 		'true',
@@ -49,7 +49,7 @@ VALUES (
 	),
 	(
 		'meditation',
-		'image.jpg',
+		'https://tinyurl.com/4wbdbbhj',
 		'health',
 		'Meditation can help with mental well-being.',
 		'true',
@@ -57,7 +57,7 @@ VALUES (
 	),
 	(
 		'exercise',
-		'image.jpg',
+		'https://tinyurl.com/bdfj9h2b',
 		'health',
 		'Exercise helps with fitness and weight-loss. Exercise can contribute to overall mental well-being.',
 		'true',
