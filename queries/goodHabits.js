@@ -9,6 +9,19 @@ const getAllGoodHabits = async () => {
 	}
 };
 
+const getOneGoodHabit = async (id) => {
+	try {
+		const oneGoodHabit = await db.one(
+			'SELECT * FROM good_habits WHERE id=$1',
+			id
+		);
+		return oneGoodHabit;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllGoodHabits,
+	getOneGoodHabit,
 };
