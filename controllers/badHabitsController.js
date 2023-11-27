@@ -29,7 +29,7 @@ badHabits.get('/', async (req, res) => {
 	if (allBadHabits[0]) {
 		res.status(200).json({ success: true, data: { payload: allBadHabits } });
 	} else {
-		res.status(500).json({ sucess: false, data: { error: 'Server error' } });
+		res.status(500).json({ success: false, data: { error: 'Server error' } });
 	}
 });
 

@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 
 const badHabitsController = require('./controllers/badHabitsController.js');
+const goodHabitsController = require('./controllers/goodHabitsController.js');
 // CONFIGURATION
 const app = express();
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/badHabits', badHabitsController);
+app.use('/goodHabits', goodHabitsController);
 
 // ROUTES
 app.get('/', (req, res) => {
