@@ -8,6 +8,8 @@ const {
 	updateBadHabit,
 } = require('../queries/badHabits.js');
 
+const { checkName, checkBoolean } = require('../validations/checkHabits.js');
+
 const badHabits = express.Router();
 
 // SHOW ROUTE
@@ -32,7 +34,7 @@ badHabits.get('/', async (req, res) => {
 });
 
 // CREATE ROUTE
-badHabits.post('/', async (req, res) => {
+badHabits.post('/', checkName, checkBoolean, async (req, res) => {
 	try {
 		const createdBadHabit = await createBadHabit(req.body);
 		res.json(createdBadHabit);
