@@ -21,7 +21,22 @@ const getOneBadHabit = async (id) => {
 	}
 };
 
+const createBadHabit = async (badHabit) => {
+	const { name, img_url, category, description, is_my_habit, rating } =
+		badHabit;
+	try {
+		const createdBadHabit = await db.one(
+			'INSERT INTO bad_habits (name, img_url, category, description, is_my_habit, rating) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+			[name, img_url, category, description, is_my_habit, rating]
+		);
+		return createdBadHabit;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllBadHabits,
 	getOneBadHabit,
+	createBadHabit,
 };
