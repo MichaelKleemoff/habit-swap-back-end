@@ -35,8 +35,21 @@ const createBadHabit = async (badHabit) => {
 	}
 };
 
+const deleteBadHabit = async (id) => {
+	try {
+		const deletedBadHabit = await db.one(
+			'DELETE from bad_habits WHERE id=$1 RETURNING *',
+			id
+		);
+		return deletedBadHabit;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllBadHabits,
 	getOneBadHabit,
 	createBadHabit,
+	deleteBadHabit,
 };
