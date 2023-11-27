@@ -32,7 +32,7 @@ VALUES (
 		10
 	);
 INSERT INTO good_habits (
-		NAME,
+		name,
 		img_url,
 		category,
 		description,

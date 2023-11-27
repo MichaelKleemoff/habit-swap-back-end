@@ -3,7 +3,7 @@ CREATE DATABASE habit_swap_dev;
 \c habit_swap_dev;
 CREATE TABLE bad_habits (
 	id SERIAL PRIMARY KEY,
-	NAME TEXT NOT NULL,
+	name TEXT NOT NULL,
 	img_url TEXT,
 	category TEXT,
 	description VARCHAR(200),
