@@ -5,6 +5,7 @@ const {
 	getOneBadHabit,
 	createBadHabit,
 	deleteBadHabit,
+	updateBadHabit,
 } = require('../queries/badHabits.js');
 
 const badHabits = express.Router();
@@ -45,15 +46,26 @@ badHabits.delete('/:id', async (req, res) => {
 	try {
 		const { id } = req.params;
 		const deletedBadHabit = await deleteBadHabit(id);
-		if (deletedBadHabit.id) {
+		if (deletedBadHabit) {
 			res
 				.status(200)
 				.json({ success: true, payload: { data: deletedBadHabit } });
 		} else {
-			res.status(404).json('Bad habit not found');
+			res.status(404).json('Bad habit with that id not found');
 		}
 	} catch (err) {
 		res.send(err);
+	}
+});
+
+// UPDATE ROUTE
+badHabits.put('/:id', async (req, res) => {
+	const { id } = req.params;
+	const updatedBadHabit = await updateBadHabit(id, req.body);
+	if (updatedBadHabit.id) {
+		res.status(200).json(updatedBadHabit);
+	} else {
+		res.status(404).json('Bad habit with that id not found');
 	}
 });
 
