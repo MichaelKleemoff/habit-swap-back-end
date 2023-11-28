@@ -4,6 +4,7 @@ const {
 	getAllGoodHabits,
 	getOneGoodHabit,
 	createGoodHabit,
+	deleteGoodHabit,
 } = require('../queries/goodHabits.js');
 
 const { checkName, checkBoolean } = require('../validations/checkHabits.js');
@@ -38,6 +39,23 @@ goodHabits.post('/', checkName, checkBoolean, async (req, res) => {
 		res.json(createdGoodHabit);
 	} catch (error) {
 		res.status(400).json({ error: 'Error' });
+	}
+});
+
+// DELETE ROUTE
+goodHabits.delete('/:id', async (req, res) => {
+	try {
+		const { id } = req.params;
+		const deletedGoodHabit = await deleteGoodHabit(id);
+		if (deletedGoodHabit) {
+			res
+				.status(200)
+				.json({ success: true, payload: { data: deletedGoodHabit } });
+		} else {
+			res.status(404).json('Good habit with that id not found');
+		}
+	} catch (err) {
+		res.send(err);
 	}
 });
 

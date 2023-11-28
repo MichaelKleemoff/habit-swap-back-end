@@ -35,8 +35,21 @@ const createGoodHabit = async (goodHabit) => {
 	}
 };
 
+const deleteGoodHabit = async (id) => {
+	try {
+		const deletedGoodHabit = await db.one(
+			'DELETE from good_habits WHERE id=$1 RETURNING *',
+			id
+		);
+		return deletedGoodHabit;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllGoodHabits,
 	getOneGoodHabit,
 	createGoodHabit,
+	deleteGoodHabit,
 };
