@@ -8,9 +8,11 @@ const {
 	updateBadHabit,
 } = require('../queries/badHabits.js');
 
+const { getOneGoodHabit } = require('../queries/goodHabits.js');
+
 const { checkName, checkBoolean } = require('../validations/checkHabits.js');
 
-const badHabits = express.Router();
+const badHabits = express.Router({ mergeParams: true });
 
 // SHOW ROUTE
 badHabits.get('/:id', async (req, res) => {

@@ -3,7 +3,10 @@ const express = require('express');
 const {
 	getAllGoodHabits,
 	getOneGoodHabit,
+	createGoodHabit,
 } = require('../queries/goodHabits.js');
+
+const { checkName, checkBoolean } = require('../validations/checkHabits.js');
 
 const goodHabits = express.Router();
 
@@ -25,6 +28,16 @@ goodHabits.get('/', async (req, res) => {
 		res.status(200).json({ success: true, data: { payload: allGoodHabits } });
 	} else {
 		res.status(500).json({ success: false, data: { error: 'Server error' } });
+	}
+});
+
+// CREATE ROUTE
+goodHabits.post('/', checkName, checkBoolean, async (req, res) => {
+	try {
+		const createdGoodHabit = await createGoodHabit(req.body);
+		res.json(createdGoodHabit);
+	} catch (error) {
+		res.status(400).json({ error: 'Error' });
 	}
 });
 
