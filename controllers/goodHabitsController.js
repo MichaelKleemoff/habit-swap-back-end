@@ -5,6 +5,7 @@ const {
 	getOneGoodHabit,
 	createGoodHabit,
 	deleteGoodHabit,
+	updateGoodHabit,
 } = require('../queries/goodHabits.js');
 
 const { checkName, checkBoolean } = require('../validations/checkHabits.js');
@@ -56,6 +57,17 @@ goodHabits.delete('/:id', async (req, res) => {
 		}
 	} catch (err) {
 		res.send(err);
+	}
+});
+
+// UPDATE ROUTE
+goodHabits.put('/:id', async (req, res) => {
+	const { id } = req.params;
+	const updatedGoodHabit = await updateGoodHabit(id, req.body);
+	if (updatedGoodHabit.id) {
+		res.status(200).json(updatedGoodHabit);
+	} else {
+		res.status(404).json('Good habit with that id not found');
 	}
 });
 

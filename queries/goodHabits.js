@@ -47,9 +47,24 @@ const deleteGoodHabit = async (id) => {
 	}
 };
 
+const updateGoodHabit = async (id, goodHabit) => {
+	try {
+		const { name, img_url, category, description, is_my_habit, rating } =
+			goodHabit;
+		const updatedGoodHabit = await db.one(
+			'UPDATE good_habits SET name=$1, img_url=$2, category=$3, description=$4, is_my_habit=$5, rating=$6 WHERE id=$7 RETURNING *',
+			[name, img_url, category, description, is_my_habit, rating, id]
+		);
+		return updatedGoodHabit;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllGoodHabits,
 	getOneGoodHabit,
 	createGoodHabit,
 	deleteGoodHabit,
+	updateGoodHabit,
 };
