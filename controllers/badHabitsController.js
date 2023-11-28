@@ -8,13 +8,26 @@ const {
 	updateBadHabit,
 	getAllBadHabitsSwapGoodHabits,
 	addNewGoodHabitToBadHabitsSwapGoodHabits,
+	deleteNewGoodHabitFromBadHabitsSwapGoodHabits,
 } = require('../queries/badHabits.js');
-
-const { getOneGoodHabit } = require('../queries/goodHabits.js');
 
 const { checkName, checkBoolean } = require('../validations/checkHabits.js');
 
 const badHabits = express.Router({ mergeParams: true });
+
+// `BAD HABITS SWAP GOOD HABITS` DELETE ROUTE
+badHabits.delete('/:badHabitId/goodHabits/:goodHabitId', async (req, res) => {
+	const { badHabitId, goodHabitId } = req.params;
+	const successfulDelete = await deleteNewGoodHabitFromBadHabitsSwapGoodHabits(
+		badHabitId,
+		goodHabitId
+	);
+	if (successfulDelete) {
+		res.status(202).json({ message: 'ok' });
+	} else {
+		res.status(400).json({ info: successfulDelete });
+	}
+});
 
 // `BAD HABITS SWAP GOOD HABITS` CREATE ROUTE
 badHabits.post('/:badHabitId/goodHabits/:goodHabitId', async (req, res) => {

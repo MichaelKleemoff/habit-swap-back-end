@@ -99,6 +99,23 @@ const addNewGoodHabitToBadHabitsSwapGoodHabits = async (
 	}
 };
 
+const deleteNewGoodHabitFromBadHabitsSwapGoodHabits = async (
+	badHabitId,
+	goodHabitId
+) => {
+	try {
+		let remove = await db.none(
+			`
+      DELETE FROM good_habits_bad_habits WHERE bad_habit_id=$1 AND good_habit_id=$2
+      `,
+			[badHabitId, goodHabitId]
+		);
+		return !remove;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllBadHabits,
 	getOneBadHabit,
@@ -107,4 +124,5 @@ module.exports = {
 	updateBadHabit,
 	getAllBadHabitsSwapGoodHabits,
 	addNewGoodHabitToBadHabitsSwapGoodHabits,
+	deleteNewGoodHabitFromBadHabitsSwapGoodHabits,
 };
