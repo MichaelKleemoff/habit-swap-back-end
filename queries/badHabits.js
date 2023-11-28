@@ -84,6 +84,21 @@ const getAllBadHabitsSwapGoodHabits = async (id) => {
 	}
 };
 
+const addNewGoodHabitToBadHabitsSwapGoodHabits = async (
+	badHabitId,
+	goodHabitId
+) => {
+	try {
+		let add = await db.none(
+			`INSERT INTO good_habits_bad_habits (bad_habit_id, good_habit_id) VALUES ($1, $2)`,
+			[badHabitId, goodHabitId]
+		);
+		return !add;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllBadHabits,
 	getOneBadHabit,
@@ -91,4 +106,5 @@ module.exports = {
 	deleteBadHabit,
 	updateBadHabit,
 	getAllBadHabitsSwapGoodHabits,
+	addNewGoodHabitToBadHabitsSwapGoodHabits,
 };
