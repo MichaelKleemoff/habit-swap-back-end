@@ -6,6 +6,7 @@ const {
 	createBadHabit,
 	deleteBadHabit,
 	updateBadHabit,
+	getAllBadHabitsSwapGoodHabits,
 } = require('../queries/badHabits.js');
 
 const { getOneGoodHabit } = require('../queries/goodHabits.js');
@@ -13,6 +14,15 @@ const { getOneGoodHabit } = require('../queries/goodHabits.js');
 const { checkName, checkBoolean } = require('../validations/checkHabits.js');
 
 const badHabits = express.Router({ mergeParams: true });
+
+// `BAD HABITS SWAP GOOD HABITS` INDEX ROUTE
+badHabits.get('/:badHabitId/goodHabits', async (req, res) => {
+	const { badHabitId } = req.params;
+	const allBadHabitsSwapGoodHabits = await getAllBadHabitsSwapGoodHabits(
+		badHabitId
+	);
+	res.json(allBadHabitsSwapGoodHabits);
+});
 
 // SHOW ROUTE
 badHabits.get('/:id', async (req, res) => {

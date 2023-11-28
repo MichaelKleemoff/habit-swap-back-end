@@ -61,10 +61,34 @@ const updateBadHabit = async (id, badHabit) => {
 	}
 };
 
+const getAllBadHabitsSwapGoodHabits = async (id) => {
+	try {
+		const allBadHabitsSwapGoodHabits = await db.any(
+			`SELECT * FROM
+      good_habits_bad_habits 
+      JOIN 
+      bad_habits
+      ON 
+      bad_habits.id=good_habits_bad_habits.bad_habit_id
+      JOIN
+      good_habits 
+      ON
+      good_habits.id=good_habits_bad_habits.good_habit_id 
+      WHERE 
+      bad_habits.id = $1;`,
+			id
+		);
+		return allBadHabitsSwapGoodHabits;
+	} catch (err) {
+		return err;
+	}
+};
+
 module.exports = {
 	getAllBadHabits,
 	getOneBadHabit,
 	createBadHabit,
 	deleteBadHabit,
 	updateBadHabit,
+	getAllBadHabitsSwapGoodHabits,
 };
