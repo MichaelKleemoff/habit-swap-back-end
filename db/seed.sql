@@ -10,7 +10,7 @@ INSERT INTO bad_habits (
 VALUES (
 		'smoking',
 		'https://tinyurl.com/2wkyjscz',
-		'health',
+		'physical health',
 		'Smoking can cause COPD and cancer.',
 		'true',
 		10
@@ -18,7 +18,7 @@ VALUES (
 	(
 		'drinking',
 		'https://tinyurl.com/28xp2ncy',
-		'health',
+		'physical health',
 		'Drinking can be addictive. Too much drinking over time can damage organs like the liver and the brain causing dementia.',
 		'true',
 		10
@@ -26,7 +26,7 @@ VALUES (
 	(
 		'overeating',
 		'https://tinyurl.com/3uhpnej8',
-		'health',
+		'physical health',
 		'Overeating can lead to obesity and other health problems potentially life-threatening.',
 		'true',
 		10
@@ -42,7 +42,7 @@ INSERT INTO good_habits (
 VALUES (
 		'nicorette gum',
 		'https://m.media-amazon.com/images/I/816w8kq8aEL.jpg',
-		'health',
+		'craving cessation',
 		'Nicorette gum helps to deal with nicotine cravings replacing the danger of smoking with gum.',
 		'true',
 		10
@@ -50,7 +50,7 @@ VALUES (
 	(
 		'meditation',
 		'https://tinyurl.com/4wbdbbhj',
-		'health',
+		'mental well-being',
 		'Meditation can help with mental well-being.',
 		'true',
 		10
@@ -58,7 +58,7 @@ VALUES (
 	(
 		'exercise',
 		'https://tinyurl.com/bdfj9h2b',
-		'health',
+		'physical health',
 		'Exercise helps with fitness and weight-loss. Exercise can contribute to overall mental well-being.',
 		'true',
 		10
