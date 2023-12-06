@@ -1,4 +1,4 @@
-\c habit_swap_dev;
+\c habit_swap_db;
 INSERT INTO bad_habits (
 		name,
 		img_url,

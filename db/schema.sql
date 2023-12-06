@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS habit_swap_dev;
-CREATE DATABASE habit_swap_dev;
-\c habit_swap_dev;
+DROP DATABASE IF EXISTS habit_swap_db;
+CREATE DATABASE habit_swap_db;
+\c habit_swap_db;
 CREATE TABLE bad_habits (
 	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL,
