@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-		"db_schema": "PGPASSWORD=EQFWMobNhhgLXoSUmXWiWwMz6ZP11yYQ psql -h dpg-cloaql0gqk6s73e5ujo0-a.ohio-postgres.render.com -U habit_swap_db_user habit_swap_db -f db/schema.sql",
-		"db_seed": "PGPASSWORD=EQFWMobNhhgLXoSUmXWiWwMz6ZP11yYQ psql -h dpg-cloaql0gqk6s73e5ujo0-a.ohio-postgres.render.com -U habit_swap_db_user habit_swap_db -f db/seed.sql"
+		"db_schema": "psql -U postgres -f db/schema.sql",
+		"db_seed": "psql -U postgres -f db/seed.sql"
 	},
+	
   "keywords": [],
   "author": "Michael Kleemoff",
   "license": "ISC",
